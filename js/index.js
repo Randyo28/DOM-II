@@ -1,9 +1,13 @@
 // Your code goes here
-const pTags = document.querySelectorAll('p')
 
-window.addEventListener("load", function() {
-    console.log('loaded')
-});
+//window load
+// window.addEventListener("load", function() {
+//     console.log('loaded')
+// });
+
+// window.addEventListener('load', (e) => {
+//     alert('Welcome to my page')
+// })
 
 //Nav
 const navLink = document.querySelectorAll('.nav-link')
@@ -22,7 +26,7 @@ newNav.forEach(item => {
     })
 })
 
-// Logo load
+// Logo click to change fontSize
 const logo = document.querySelector('.logo-heading')
 logo.addEventListener('click', (e) => {
     logo.style.fontSize = '2rem'
@@ -30,9 +34,25 @@ logo.addEventListener('click', (e) => {
 })
 
 
-//Bus image
+//Bus image mousedown
 const busImage = document.querySelector('.intro img')
 // console.log(busImage)
-busImage.addEventListener('wheel', (e) => {
-    busImage.style.transform = '5'
+busImage.addEventListener('mousedown', (e) => {
+    busImage.style.width = '80%'
 })
+
+//welcome h2 mouseUp
+const welcome = document.querySelector('.intro h2')
+welcome.addEventListener('mouseup', (e) => {
+    welcome.style.fontSize = "7rem"
+})
+
+//doubleClick pTags
+const pTags = document.querySelectorAll('p')
+const newPtags = Array.from(pTags)
+newPtags.forEach(item =>{
+    item.addEventListener('dblclick', (e) =>{
+        item.style.color = 'red'
+    })
+})
+
