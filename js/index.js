@@ -56,3 +56,35 @@ newPtags.forEach(item =>{
     })
 })
 
+//keydown
+const adventureImg = document.querySelector('.img-content img')
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+        adventureImg.style.width = '50%'
+    }
+})
+
+//keyup
+const container = document.querySelector('.container .home')
+document.addEventListener('keyup', (e) => {
+    if(e.key === ''){
+        container.style.maxWidth = '500px'
+    }
+})
+
+//focus
+newNav.forEach(item => {
+    item.addEventListener('focus', (e) =>{
+        item.style.backgroundColor = 'yellow'
+    })
+})
+
+//gsap
+// const destination = document.querySelector('.content-destination h2')
+gsap.fromTo('.nav-link', {
+    x: 300 
+}, {
+    x:0,
+    duration: 2,
+    stagger:1
+})
