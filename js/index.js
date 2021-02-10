@@ -1,4 +1,11 @@
 // Your code goes here
+const nav = document.querySelector('.main-navigation')
+const navLink = document.querySelectorAll('.nav-link')
+const logo = document.querySelector('.logo-heading')
+const busImage = document.querySelector('.intro img')
+const welcome = document.querySelector('.intro h2')
+const pTags = document.querySelectorAll('p')
+const adventureImg = document.querySelector('.img-content img')
 
 //window load
 // window.addEventListener("load", function() {
@@ -10,7 +17,7 @@
 // })
 
 //Nav
-const navLink = document.querySelectorAll('.nav-link')
+
 
 const newNav = Array.from(navLink)
 console.log(newNav)
@@ -27,28 +34,30 @@ newNav.forEach(item => {
 })
 
 // Logo click to change fontSize
-const logo = document.querySelector('.logo-heading')
 logo.addEventListener('click', (e) => {
+    //My propagation stop event - this is childNode
+    e.stopPropagation()
     logo.style.fontSize = '2rem'
-    
+})
+
+nav.addEventListener('click', (e) => {
+    //this is parentNode
+    nav.style.width = '50%'
 })
 
 
 //Bus image mousedown
-const busImage = document.querySelector('.intro img')
 // console.log(busImage)
 busImage.addEventListener('mousedown', (e) => {
     busImage.style.width = '80%'
 })
 
 //welcome h2 mouseUp
-const welcome = document.querySelector('.intro h2')
 welcome.addEventListener('mouseup', (e) => {
     welcome.style.fontSize = "7rem"
 })
 
 //doubleClick pTags
-const pTags = document.querySelectorAll('p')
 const newPtags = Array.from(pTags)
 newPtags.forEach(item =>{
     item.addEventListener('dblclick', (e) =>{
@@ -57,7 +66,6 @@ newPtags.forEach(item =>{
 })
 
 //keydown
-const adventureImg = document.querySelector('.img-content img')
 document.addEventListener('keydown', (e) => {
     if(e.key === 'Escape'){
         adventureImg.style.width = '50%'
@@ -65,10 +73,10 @@ document.addEventListener('keydown', (e) => {
 })
 
 //keyup
-const container = document.querySelector('.container .home')
+// const nav = document.querySelector('.main-navigation')
 document.addEventListener('keyup', (e) => {
-    if(e.key === ''){
-        container.style.maxWidth = '500px'
+    if(e.key === 'Shift'){
+        nav.style.backgroundColor = 'green'
     }
 })
 
@@ -79,6 +87,7 @@ newNav.forEach(item => {
     })
 })
 
+
 //gsap
 // const destination = document.querySelector('.content-destination h2')
 gsap.fromTo('.nav-link', {
@@ -86,5 +95,5 @@ gsap.fromTo('.nav-link', {
 }, {
     x:0,
     duration: 2,
-    stagger:1
+    stagger:0.3
 })
